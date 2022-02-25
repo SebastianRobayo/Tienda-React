@@ -1,6 +1,6 @@
 exports.postLogin = (req, res) => {
-  const username = req.body.user;
-  const password = req.body.pass;
+  const username = req.body.username;
+  const password = req.body.password;
 
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
@@ -14,7 +14,7 @@ exports.postLogin = (req, res) => {
         if (result.length > 0) {
           res.send(result);
         } else {
-          res.send({ message: "usuario o contraseña incorresctos" });
+          res.send({ message: "usuario o contraseña incorrectos" });
         }
       }
     );

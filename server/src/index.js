@@ -2,7 +2,7 @@ const express = require("express");
 const mysql = require("mysql");
 const conn = require("express-myconnection");
 const routes = require("./routes/login.routes");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const cors = require("cors");
 
 const app = express();
@@ -17,14 +17,9 @@ const dbConfig = {
 
 // middlewares
 app.use(conn(mysql, dbConfig, "single"));
-app.use(morgan("start"));
+// app.use(morgan("start"));
 app.use(express.json());
 app.use(cors());
-
-// routes
-app.get("/", (req, res) => {
-  res.send("Welcome to server");
-});
 
 app.use("/", routes);
 
